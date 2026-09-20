@@ -1,0 +1,35 @@
+{
+  id: 'com.ss.android.ugc.aweme',
+  name: '抖音',
+  groups: [
+    {
+      key: 100,
+      name: '短剧中间广告-上划跳过',
+      desc: '短剧中间广告出现"上划继续观看"提示时,自动上划跳过',
+      rules: [
+        {
+          key: 1,
+          name: '上划继续观看-跳过广告',
+          anyMatches: [
+            '[text*="上划继续观看"]',
+            '[text*="上滑继续观看"]',
+            '[text~="上[划滑].*观看"]'
+          ],
+          action: 'swipe',
+          swipeArg: {
+            start: {
+              x: 'screenWidth/2',
+              y: 'screenHeight*0.7'
+            },
+            end: {
+              x: 'screenWidth/2',
+              y: 'screenHeight*0.3'
+            },
+            duration: 300
+          },
+          actionCd: 2000
+        }
+      ]
+    }
+  ]
+}
